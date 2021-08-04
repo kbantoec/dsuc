@@ -1,0 +1,535 @@
+%% packages
+
+%---------------------------------------------------------------------
+% FONT SET UPS
+%---------------------------------------------------------------------
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[super]{nth}
+%\usepackage{fullpage} % no needed with geometry package
+\usepackage{amsmath} % needed for command eqref
+\usepackage{amsfonts} % needed for math fonts
+\usepackage{amssymb}
+\usepackage{xcolor} % required for specifying colors by name
+\usepackage{color, colortbl} % colortbl to colour tables with \cellcolor{} \rowcolor{}, etc.
+\usepackage[]{hyphenat} % to use \allowbreak
+
+\definecolor{dcblue}{RGB}{59,170,202} % data camp blue
+\definecolor{dclblue}{HTML}{eaf4f7} % light data camp blue 
+\definecolor{dcdblue}{HTML}{2c87a0} % dark data camp blue
+\definecolor{impactblue}{HTML}{007acc}
+
+%---------------------------------------------------------------------
+% ALGORITHMS
+%---------------------------------------------------------------------
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algpseudocode}
+
+%---------------------------------------------------------------------
+% LISTS
+%---------------------------------------------------------------------
+
+\usepackage{scrextend}
+\addtokomafont{labelinglabel}{\sffamily}
+\usepackage[ampersand]{easylist}
+\usepackage{enumitem}  % to use [noitemsep]
+
+%---------------------------------------------------------------------
+% HYPERLINK SET UPS
+%---------------------------------------------------------------------
+
+\usepackage[
+	colorlinks = true,
+	%,breaklinks
+	]{hyperref} % needed for creating hyperlinks, the option colorlinks=true gets rid of the awful color boxes, breaklinks breaks long links (list of figures).
+	
+\hypersetup{% options in comments --> already been used --> (hyperref) setting option has no effect
+	hidelinks,
+	%backref		= true,
+	%pagebackref	= true,
+	%hyperindex	= true,
+	colorlinks		= false,
+	citecolor 		= {dcblue},
+	breaklinks		= true,
+	urlcolor		= {dcblue},
+	%bookmarks		= true,
+	%bookmarksopen	= false,
+	pdftitle		= {Title},
+	pdfauthor 		= {Author}
+}
+\usepackage[hyphenbreaks]{breakurl} % benötigt für das Brechen von URLs in Literaturreferenzen, hyphenbreaks auch bei links, die über eine Seite gehen (mit hyphenation).
+
+%---------------------------------------------------------------------
+% FIGURE SET UPS
+%---------------------------------------------------------------------
+
+\usepackage{graphicx}\graphicspath{{figures/}} % needed for \includegraphics
+
+%---------------------------------------------------------------------
+% AUTOMATIC PARAGRAPHS
+%---------------------------------------------------------------------
+
+\usepackage{blindtext} % needed for creating dummy text passages
+\usepackage{lipsum} % inserts dummy text
+
+%---------------------------------------------------------------------
+% TABLE SETTINGS
+%---------------------------------------------------------------------
+
+\usepackage{array} % needed for creating tables
+\usepackage{rotating, booktabs} % required for nicer horizontal rules in tables
+\usepackage{tabularx} % sets columns-size according to the content
+\usepackage{longtable} % needed for long tables over pages
+\usepackage{caption} % to use caption*{} to insert legends
+\renewcommand{\captionfont}{\small\sffamily}
+\renewcommand{\captionlabelfont}{\sffamily}
+\setlength{\captionmargin}{70pt}
+%\usepackage{tabu}
+\usepackage{multirow}
+
+%---------------------------------------------------------------------
+% DRAWING SETTINGS
+%---------------------------------------------------------------------
+
+\usepackage{tikz} % required for drawing custom shapes --> https://fr.overleaf.com/learn/latex/TikZ_package
+
+%---------------------------------------------------------------------
+%	BIBLIOGRAPHY AND INDEX
+%---------------------------------------------------------------------
+
+% Good video:
+% https://www.youtube.com/watch?v=KS9GvK7cvmo
+
+%\usepackage[style=alphabetic,
+%citestyle=numeric,
+%sorting=nyt,
+%sortcites=true,
+%autopunct=true,
+%babel=hyphen,
+%hyperref=true,
+%abbreviate=false,
+%backref=true,
+%backend=biber]{biblatex}
+%\addbibresource{bibliography.bib} % BibTeX bibliography file
+%\defbibheading{bibempty}{}
+%
+%\usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
+
+%\usepackage[round,authoryear]{natbib} % needed for cite and abbrvnat bibliography style
+%\usepackage{natbib}  % \usepackage[options]{natbib}
+
+\usepackage{cite}  % to use commands such as \citeA
+\usepackage{apacite}
+\usepackage{makeidx} % required to make an index
+\makeindex % tells LaTeX to create the files required for indexing
+
+%---------------------------------------------------------------------
+%	GENERATING LISTS OF CUSTOM ENVIRONMENT
+%---------------------------------------------------------------------
+
+% List of functions
+
+%\usepackage{tocloft} % The package lets you customise your table of contents, list of figures or list of tables
+
+% /!\ Problem with this package versus titlesec! 
+
+% Good explanations of how to use the package
+% https://texblog.org/2008/07/13/define-your-own-list-of/
+% cf documentation package
+
+\usepackage{amsthm} % needed for new theorems
+\usepackage{thmtools} % needed for \listoftheorem
+
+% Editing Format of List of Theorems in thmtools:
+% https://tex.stackexchange.com/questions/180747/editing-format-of-list-of-theorems-in-thmtools
+
+% Generating lists of custom environment:
+% https://tex.stackexchange.com/questions/16494/generating-lists-of-custom-environment
+
+\renewcommand{\listtheoremname}{List of Functions}
+
+%The \makeatletter command temporarily defines »@« as a normal character to enable changes to internal LaTeX macros outside packages (STY) or classes (CLS). With \makeatother this process is reversed and the »@« is set to its original character category (other). The »@« is used to protect the internal LaTeX macros. Hence you should be very careful when using these two commands. cf. https://latex.org/forum/viewtopic.php?t=3732
+
+%\makeatletter
+%\declaretheoremstyle[
+%	spaceabove 	= 5pt, 
+%	spacebelow		= 5pt,
+%	headfont		= \Huge\itshape,
+%	notefont		= \normalfont\sffamily, 
+%	notebraces		= {(}{)},
+%	bodyfont		= \normalfont\sffamily,
+%	postheadspace	= 0.5em,
+%	qed				= {},
+%	postheadhook	= {%
+%  		\ifx\@empty\thmt@shortoptarg
+%    	\renewcommand\addcontentsline[3]{}
+%  		\fi}%
+%	]{theorem}
+%\makeatother
+%
+%\declaretheorem[style=theorem]{theorem}
+%
+%\makeatletter
+%\def\ll@theorem{%
+%  \protect\numberline{\csname the\thmt@envname\endcsname}%
+%  \ifx\@empty\thmt@shortoptarg
+%    \thmt@thmname
+%  \else
+%    \thmt@shortoptarg
+%  \fi}
+%\def\l@thmt@theorem{} 
+%\makeatother
+
+%---------------------------------------------------------------------
+%	MAIN TABLE OF CONTENTS
+%---------------------------------------------------------------------
+
+\usepackage{titletoc} % required for manipulating the table of contents
+
+\contentsmargin{0cm} % removes the default margin
+
+%\titlecontents{section}[left]
+%{above-code}
+%{numbered-entry-format}
+%{numberless-entry-format}
+%{filler-page-format}
+%[below-code]
+
+%When defining entries, use \addvspace if you want to add vertical space, and \\* instead of \\ for line breaks.
+
+% Part text styling
+% https://tex.stackexchange.com/questions/180112/how-to-modify-titlecontentspart
+
+\titlecontents{part}[0cm]
+{\addvspace{20pt}\centering\Large\itshape}
+{}
+{Part \contentslabel[\thecontentslabel]{1.25cm}}
+{}
+
+% Chapter text styling
+
+\titlecontents{chapter}[1.25cm] % Indentation
+{\addvspace{15pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+{\color{dcblue!60}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{dcblue}} % Chapter number
+{\color{dcblue!60}}  
+{\color{dcblue!60}\normalsize\sffamily\bfseries\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
+% Section text styling
+
+\titlecontents{section}[1.25cm] % Indentation
+{\addvspace{5pt}\sffamily\bfseries} % Spacing and font options for sections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Section number
+{}
+{\sffamily\hfill\color{black}\thecontentspage} % Page number
+[]
+
+% Subsection text styling
+
+\titlecontents{subsection}[1.25cm] % Indentation
+{\addvspace{1pt}\sffamily\small} % Spacing and font options for subsections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Subsection number
+{}
+{\sffamily\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+[] 
+
+% List of figures
+
+\titlecontents{figure}[0em]
+{\addvspace{-5pt}\sffamily}
+{\thecontentslabel\hspace*{1em}}
+{}
+{\ \titlerule*[.5pc]{.}\;\thecontentspage}
+[]
+
+% List of tables
+
+\titlecontents{table}[0em]
+{\addvspace{-5pt}\sffamily}
+{\thecontentslabel\hspace*{1em}}
+{}
+{\ \titlerule*[.5pc]{.}\;\thecontentspage}
+[]
+
+% List of theorems
+
+\titlecontents{theorem}[0em]
+	{\addvspace{-5pt}\sffamily}
+	{\sffamily\thecontentslabel}
+	{\hspace*{1em}}
+	{\ \titlerule*[.5pc]{.}\;\thecontentspage}
+	[]
+
+%---------------------------------------------------------------------
+% LISTINGS
+%---------------------------------------------------------------------
+
+\usepackage{listings} % needed to add non-formatted text as you would do with \begin{verbatim}
+
+\lstloadlanguages{Python} % needed to recognize Python programming language
+
+\usepackage{upquote} % to set upquote equal true in lstset
+\usepackage{listingsutf8}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{HTML}{405f8f}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{hispythonstyle}{
+    language = Python,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\definecolor{azraq blue}{HTML}{4a69bd}
+\definecolor{livid grey}{HTML}{919191}
+\definecolor{very berry}{HTML}{B53471}
+\definecolor{bara red}{HTML}{ED4C67}
+\definecolor{sasquatch socks}{HTML}{FC427B}
+\definecolor{light purple}{HTML}{c56cf0}
+\definecolor{baltic sea}{HTML}{3d3d3d}
+
+\lstdefinestyle{mypythonstyle}{
+    literate = 
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+      {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+      {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+      {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+      {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+      {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+      {Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
+      {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+      {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+      {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+      {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+      {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1,
+    language = Python,
+    basicstyle = \ttfamily\footnotesize,
+    breakatwhitespace = false, % sets if automatic breaks should only happen at whitespace
+    breaklines = true, % sets automatic line breaking
+    captionpos = b, % sets the caption-position to bottom
+    numbers = left, % where to put the line-numbers; possible values are (none, left, right)
+    firstnumber = 1, % Line numbers start with line 1
+    numberstyle = \ttfamily\color{baltic sea}, %\ttfamily\color{azraq blue},
+    %frame = single, % adds a frame around the code
+    frame = leftline,
+    framerule = 1pt,
+    frameround = tttt,
+    %framerule = \thicklines % or thinlines when rounded frame
+    rulecolor = \color{baltic sea},
+    otherkeywords = {self, None, NotImplementedError, assert}, % Add keywords here
+    keywordstyle = \bfseries\color{very berry},
+    commentstyle = \color{livid grey}, % comment style
+    stringstyle = \color{azraq blue}, % string literal style
+    emph = {__str__, __init__, __name__, __repr__, __eq__, __gt__, __ge__, __class__}, % Custom highlighting
+    emphstyle = \color{sasquatch socks}, % Custom highlighting style
+    aboveskip = 0.3cm, % Space between listings env. and surrounding text
+    belowskip = 0cm,
+    upquote = true, % makes all verbatim quotes single quotes
+    showstringspaces = false, % to get rid of the "squat-u" between string spaces
+    % backgroundcolor = \color[HTML]{eaf4f7}
+}
+
+\lstset{style=mypythonstyle}
+
+% \lstset{
+% inputencoding = utf8,
+% % extendedchars=true,
+% literate = {é}{{\'{e}}}1,
+% language = Python,
+% basicstyle = \ttfamily\footnotesize,
+% breakatwhitespace = false, % sets if automatic breaks should only happen at whitespace
+% breaklines = true, % sets automatic line breaking
+% captionpos = b, % sets the caption-position to bottom
+% numbers = left, % where to put the line-numbers; possible values are (none, left, right)
+% firstnumber = 1, % Line numbers start with line 1
+% numberstyle = \ttfamily,
+% %frame = single, % adds a frame around the code
+% frame = leftline,
+% framerule = 2pt,
+% frameround = tttt,
+% %framerule = \thicklines % or thinlines when rounded frame
+% rulecolor = \color[HTML]{3baaca},
+% otherkeywords={self}, % Add keywords here
+% keywordstyle = \bfseries\color[HTML]{3baaca}, % pink: \color[HTML]{ff0066}
+% commentstyle = \color[HTML]{405f8f}, %\color{gray},% \color[HTML]{009973}, % comment style
+% stringstyle = \color[HTML]{009432}, % \color[HTML]{6600ff}, % string literal style
+% emph = {__str__,__init__, __name__, __repr__}, % Custom highlighting
+% emphstyle = \color[HTML]{B53471}, % Custom highlighting style
+% aboveskip = 0.3cm, % Space between listings env. and surrounding text
+% belowskip = 0cm,
+% upquote = true, % makes all verbatim quotes single quotes
+% showstringspaces = false, % to get rid of the "squat-u" between string spaces
+% % backgroundcolor = \color[HTML]{eaf4f7} % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+% }
+
+% Further information about frames:
+% https://wiki.math.ntnu.no/_media/drift/stud/listings.pdf
+
+%---------------------------------------------------------------------
+% NEW THEOREM STYLES
+%---------------------------------------------------------------------
+
+%\usepackage{amsthm} % needed for new theorems
+
+%\newtheoremstyle{stylename}% name of the style to be used
+%  {spaceabove}% measure of space to leave above the theorem. 
+%  {spacebelow}% measure of space to leave below the theorem. 
+%  {bodyfont}% name of font to use in the body of the theorem
+%  {indent}% measure of space to indent
+%  {headfont}% name of head font
+%  {headpunctuation}% punctuation between head and body
+%  {headspace}% space after theorem head; " " = normal interword space
+%  {headspec}% Manually specify head
+
+\newtheoremstyle{examplestyle} % theorem style name
+{5pt} % space above
+{5pt} % space below
+{\normalfont} % body font
+{} % indent amount
+{\bfseries\sffamily} % theorem head font
+{\\[0.1cm]} % punctuation between head and body
+{10mm} % space after theorem head
+{\sffamily\thmname{#1}\nobreakspace\thmnumber{#2}\thmnote{\nobreakspace---\nobreakspace #3.}} % manually specify head
+
+\newtheoremstyle{codestyle}
+{5pt} 
+{5pt} 
+{\ttfamily} 
+{} 
+{\bfseries\sffamily} 
+{\newline}
+{10mm} 
+{\sffamily\thmname{#1}\nobreakspace\thmnumber{#2}\thmnote{\nobreakspace---\nobreakspace {\bfseries\ttfamily #3}.}} % manually specify head
+
+%\newtheoremstyle{blacknumbox} % Theorem style name
+%{0pt}% Space above
+%{0pt}% Space below
+%{\normalfont}% Body font
+%{}% Indent amount
+%{\small\bf\sffamily}% Theorem head font
+%{\;}% Punctuation after theorem head
+%{0.25em}% Space after theorem head
+%{\small\sffamily\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+%\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}\newline}% Optional theorem note
+
+%---------------------------------------------------------------------
+% NEW THEOREMS
+%---------------------------------------------------------------------
+
+% https://en.wikibooks.org/wiki/LaTeX/Theorems
+% http://www.ctex.org/documents/packages/math/amsthdoc.pdf
+
+% \theoremstyle --> plain, definition or remark.
+
+\theoremstyle{examplestyle} % name of the style to be used
+\newtheorem{exampleT}{Example} % new theorem
+\newtheorem{definitionT}{Definition}
+\newtheorem{excerptT}{Text excerpt}
+\newtheorem{instructionT}{Instruction}
+
+\theoremstyle{codestyle}
+\newtheorem{functionT}{Function}
+
+
+%\newcounter{dummy} 
+%\numberwithin{dummy}{section}
+%\theoremstyle{blacknumbox}
+%\newtheorem{definitionT}{Definition}[section]
+
+\theoremstyle{plain} % default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{conj}{Conjecture}[section]
+% \newtheorem{defn}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark} % unnumbered theorem because of *
+\newtheorem*{note}{Note} % unnumbered theorem because of *
+\newtheorem{case}{Case}
+
+%---------------------------------------------------------------------
+%	DEFINITION OF COLORED BOXES
+%---------------------------------------------------------------------
+
+\RequirePackage[
+	framemethod = default
+	]{mdframed} % required for creating the theorem, definition, exercise and corollary boxes
+
+% Definition box
+\newmdenv[
+	linewidth = 2pt,
+	skipabove = 11pt,
+	skipbelow = 0pt,
+	rightline = false,
+	leftline	= true,
+	topline = false,
+	bottomline = false,
+	linecolor = dcblue,
+	innerleftmargin = 5pt,
+	innerrightmargin	= 5pt,
+	innertopmargin = 0pt,
+	leftmargin = 0cm,
+	rightmargin = 0cm,
+	innerbottommargin = 0pt
+	]{dBox}
+
+% Instruction box
+\newmdenv[
+	linewidth = 2pt,
+	skipabove = 11pt,
+	skipbelow = 0pt,
+	rightline = false,
+	leftline	= true,
+	topline = false,
+	bottomline = false,
+	linecolor = dcblue,
+	innerleftmargin = 5pt,
+	innerrightmargin	= 5pt,
+	innertopmargin = 5pt,
+	leftmargin = 0cm,
+	rightmargin = 0cm,
+	innerbottommargin = 5pt,
+	backgroundcolor = dcblue!10	
+	]{iBox}
+
+%---------------------------------------------------------------------
+%	NEW ENVIRONMENTS
+%---------------------------------------------------------------------
+
+%\newenvironment{<name>}{<begin code>}{<end code>} defines a new environment called <name>. At \begin{<name>} the code <begin code> will be executed and at \end{<name>} the <end code> is inserted.
+
+% Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
+
+\newenvironment{definitionE}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}
+\newenvironment{functionE}{\begin{dBox}\begin{functionT}}{\end{functionT}\end{dBox}}
+\newenvironment{excerptE}{\begin{dBox}\begin{excerptT}}{\end{excerptT}\end{dBox}}
+\newenvironment{instructionE}{\begin{iBox}\begin{instructionT}}{\end{instructionT}\end{iBox}}
+
+
+
+
+
+

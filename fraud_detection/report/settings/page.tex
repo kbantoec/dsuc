@@ -1,0 +1,125 @@
+%% page settings
+
+\usepackage[
+	top		= 2cm,
+	bottom	= 2cm,
+	left	= 2.5cm,
+	right	= 2cm
+	]{geometry} 
+% needed to define page border settings such as the margins
+
+%\parindent=0cm % get rid of indentation
+%\setlength\parindent{0pt} % sets also noindent for entire file
+
+\usepackage{parskip} 
+% if you decide to set the indent to zero, then it means you will need a vertical space between paragraphs in order to make them clear. The space between paragraphs is held in \parskip. 
+% --> https://tex.stackexchange.com/questions/40429/how-to-use-the-parskip-package-space-in-between-paragraphs
+
+%---------------------------------------------------------------------
+% PAGE HEADERS
+%--------------------------------------------------------------------
+
+% https://en.wikibooks.org/wiki/LaTeX/Customizing_Page_Headers_and_Footers
+
+% \pagestyle{headings} % if no fancyhdr used
+
+\usepackage{fancyhdr} % required for header and footer configuration
+
+\pagestyle{fancy}
+
+% \renewcommand{\chaptermark}[1]{\markboth{\sffamily\footnotesize\bfseries\chaptername\ \thechapter.\ #1}{}} % Chapter text font settings
+
+\renewcommand{\sectionmark}[1]{\markright{\sffamily\footnotesize\thesection\hspace{5pt}#1}{}} % Section text font settings
+
+% \fancyhf{} % clears headers and footers
+
+% \fancyhead[LE,RO]{\sffamily\footnotesize\thepage} % Font setting for the page number in the header
+
+% \fancyhead[LO]{\rightmark} % Print the nearest section name on the left side of odd pages
+% \fancyhead[RE]{\leftmark} % Print the current chapter name on the right side of even pages
+
+% %\fancyfoot[RE,LO]{\footnotesize Group 10}
+% \fancyfoot[RE,LO]{\footnotesize Kai {\scshape Banto Eckert}}
+
+\renewcommand{\headrulewidth}{0pt} % removes the rule in the header
+\renewcommand{\footrulewidth}{0pt} % removes the rule in the footer
+
+% \fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}\fancyfoot{}\fancyhead{}} % Style for header rule, header and footer when a plain pagestyle is specified
+
+% Removes the header from odd empty pages at the end of chapters
+\makeatletter
+\renewcommand{\cleardoublepage}{
+\clearpage\ifodd\c@page\else
+\hbox{}
+\vspace*{\fill}
+\thispagestyle{empty}
+\newpage
+\fi}
+
+%---------------------------------------------------------------------
+% CHAPTER AND SECTION SETTINGS
+%---------------------------------------------------------------------
+
+\usepackage{titlesec} % top margin above Chapter
+% https://en.wikibooks.org/wiki/LaTeX/Page_Layout
+%\titlespacing*{\chapter}{0pt}{-50pt}{0pt}
+
+% Title format ------------------------------------------------------
+
+%\titleformat{command}[shape]{format}{label}{sep}{before-code}{after-code}
+% command: \part, \chapter, \section, \subsection, \subsubsection, \paragraph or \subparagraph.
+% shape: hang, block, display, runin, leftmargin, rightmargin, drop, wrap or frame.
+% format: is the format to be applied to the title, label, and text; for example \normalfont\Large\bfseries.
+
+% Further information:
+% https://www.overleaf.com/learn/latex/Sections_and_chapters
+% link: https://www.youtube.com/watch?v=VRp4B1JzHTM
+
+\titleformat
+{\part} % command
+[display] % shape
+{\large\center} % format
+{\sffamily\textbf{\partname\ \thepart}} % label
+{20pt} % separation between chapter and label
+{\Huge\itshape} % title label options
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\large\itshape\center} % format
+{\chaptertitlename~\thechapter} % label
+{10pt} % separation between chapter and label
+{\huge} % title label options
+
+% \titlespacing{command}{left}{before-sep}{after-sep}
+
+\titleformat
+{\section}
+[hang]
+{\Large\sffamily\bfseries}
+{\thesection}
+{0.5em}
+{}
+
+\titleformat
+{\subsection}
+[hang]
+{\large\sffamily\bfseries}
+{\thesubsection}
+{0.5em}
+{}
+
+% Title spacing
+% -------------
+% cf. titlesec package
+% \titlespacing*{<command>}{<left>}{<before-sep>}{<after-sep>}
+\titlespacing*{\subsection}{0pt}{*1}{*2}
+
+
+%---------------------------------------------------------------------
+% LIST SETTINGS
+%---------------------------------------------------------------------
+
+%\usepackage{enumitem} % customize lists
+
+%\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists

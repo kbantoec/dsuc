@@ -1,0 +1,31 @@
+% Information about book structure:  
+% https://en.wikibooks.org/wiki/LaTeX/Document_Structure#Book_structure
+
+%---------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%---------------------------------------------------------------
+\documentclass[a4paper, 10pt]{article} 
+
+% packages
+\input{settings/packages}
+% page settings
+\input{settings/page}
+% macros
+\input{settings/macros}
+
+%---------------------------------------------------------------
+%	DOCUMENT
+%---------------------------------------------------------------
+
+\begin{document}
+\include{frontmatter/title}
+\input{frontmatter/abstract}
+
+\section{Introduction and preparing your data}
+\input{mainmatter/introduction}
+
+\newpage
+\bibliographystyle{apacite}
+\bibliography{literature/bibliography}
+
+\end{document}
