@@ -1,7 +1,7 @@
 # Data Science Use Cases
 
 ## 🪙 Finance
-<a href="https://nbviewer.org/github/kbantoec/dsuc/blob/f8c349dbe7d2abf8f539088cba831c5751e121e7/src/finance/notebooks/trading.ipynb" target="_blank">Notebook</a>
+<a href="https://nbviewer.org/github/kbantoec/dsuc/blob/4f8c617d3693a3d548b30225820d881579240e3f/src/finance/notebooks/trading.ipynb" target="_blank">Notebook</a>
     
 
 ## 🕵️‍♀️ Fraud detection
